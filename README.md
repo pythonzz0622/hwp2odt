@@ -4,5 +4,6 @@
 
 ```
 # 실행방법
-python hwp2odt.py --file_name="test.hwp" --output_dir="output" 
+python source/server.py
+python source/hwp2odt.py --file_name="test.hwp" --output_dir="output" 
 ```
