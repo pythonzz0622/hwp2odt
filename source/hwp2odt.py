@@ -34,7 +34,7 @@ def hwp2odt(file_name , output_dir):
 
     url_path = f'http://{ip_address}:9000/get_hwp?data='
     file_path = url_path + file_name
-    print(file_path)
+
     # hwp파일을 불러오고, 전환하고, 내보내는 3가지 task에 대한 job을 정의
     job = cloudconvert.Job.create(payload={
         "tasks": {
@@ -55,7 +55,7 @@ def hwp2odt(file_name , output_dir):
             }
         }
     })
-    print(job)
+
     # 변환 다 될때 까지 기다리기
     job = cloudconvert.Job.wait(id=job['id'])
 
