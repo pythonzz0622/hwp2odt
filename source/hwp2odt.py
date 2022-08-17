@@ -24,17 +24,15 @@ def hwp2odt(file_name , output_dir):
     '''
     Description:
         hwp파일을 odt파일로 변환하는 함수입니다.
-
     Args:
         file_path (str): hwp파일의 base이름 입력 ex) test.hwp
         output_dir (str): 결과 저장 경로 입력 ex) output/
-
     Return: 성공 여부와 저장된 경로를 반환합니다.
    '''
 
     url_path = f'http://{ip_address}:9000/get_hwp?data='
     file_path = url_path + file_name
-
+    print(file_path)
     # hwp파일을 불러오고, 전환하고, 내보내는 3가지 task에 대한 job을 정의
     job = cloudconvert.Job.create(payload={
         "tasks": {

@@ -3,7 +3,7 @@ from flask import Flask, request, send_file
 import os
 from glob import glob
 
-# 데이터 모두 불러오기
+# 데이터 모두 불러 오기
 data = glob('dataset/*.hwp')
 data_name = [os.path.basename(data) for data in data ]
 print(data_name)
@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/get_hwp')
 
-def get_hwp():
+def get_hwp() :
     '''
     Description:
         hwp file을 url로 넘겨주기 위한 함수
