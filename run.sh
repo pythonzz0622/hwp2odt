@@ -1,7 +1,7 @@
 #!/bin/bash
 
 :<<'END'
-dataset경로를 통해 파일을 읽어오는 코드입니다.
+dataset경로를 통해 파일을 읽어오는 코드입니다. hwp2odt
 END
 
 for entry in `ls ./dataset/`; do
