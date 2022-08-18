@@ -2,6 +2,7 @@ import os
 import cloudconvert
 import argparse
 import json
+from urllib import parse
 
 with open('config.json', 'r') as f:
     json_data = json.load(f)
@@ -31,7 +32,9 @@ def hwp2odt(file_name , output_dir):
    '''
 
     url_path = f'http://{ip_address}:9000/get_hwp?data='
-    file_path = url_path + file_name
+    enc_name = parse.quote(file_name)
+
+    file_path = url_path + enc_name
     print(file_path)
     # hwp파일을 불러오고, 전환하고, 내보내는 3가지 task에 대한 job을 정의
     job = cloudconvert.Job.create(payload={

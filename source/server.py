@@ -2,6 +2,7 @@
 from flask import Flask, request, send_file
 import os
 from glob import glob
+from urllib import parse
 
 # 데이터 모두 불러 오기
 data = glob('dataset/*.hwp')
@@ -21,6 +22,7 @@ def get_hwp() :
     # hwp file path 지정
     hwp_dir = "dataset/"
     hwp_file = request.args['data']
+    enc_name = parse.quote(hwp_file)
     hwp_path = os.path.join(hwp_dir, hwp_file)
 
     # 절대 경로로 변경
@@ -30,7 +32,7 @@ def get_hwp() :
     if not os.path.isfile(hwp_path):
         return "ERROR: file %s was not found on the server" % hwp_file
     # Send the file back to the client
-    return send_file(full_path, as_attachment=True, attachment_filename=hwp_file)
+    return send_file(full_path, as_attachment=True, attachment_filename=enc_name)
 
 # 서버 실행
 app.run(host='0.0.0.0', port=int("9000"))
